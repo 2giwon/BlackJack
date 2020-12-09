@@ -1,3 +1,3 @@
 package model
 
-class Dealer : Player()
+class Dealer(deck: Deck) : User(deck)

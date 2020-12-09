@@ -1,5 +1,3 @@
 package model
 
-open class Player {
-    private val cards = mutableListOf<Card>()
-}
+class Player(deck: Deck, name: String) : User(deck)
