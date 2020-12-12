@@ -5,32 +5,6 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-class Player(cards: List<Card>, val name: String) : User(cards) {
-
-    private val playerCards = mutableListOf<Card>().apply {
-        addAll(cards)
-    }
-
-    fun getCards(): List<Card> = playerCards
-
-    fun addCard(card: Card) {
-        playerCards.add(card)
-    }
-
-    fun getCardRankSum(cards: List<Card>): Int {
-        return cards.map {
-            Card.getRankValue(it.rank)
-        }.fold(0) { acc, i ->
-            acc + if (i == Constant.ACE_VALUE) getAceCardValue(acc) else i
-        }
-    }
-
-    private fun getAceCardValue(sum: Int): Int {
-        return if (sum + Constant.ACE_MAX_RANK > Constant.WINNER_VALUE) Constant.ACE_VALUE
-        else Constant.ACE_MAX_RANK
-    }
-}
-
 class PlayerTest {
 
     private lateinit var cards: List<Card>
