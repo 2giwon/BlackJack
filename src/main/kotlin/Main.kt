@@ -1,9 +1,8 @@
+import controller.BlackJackGame
 import view.ConsoleInputView
-import view.InputView
+import view.ConsoleOuputView
 
-fun main(args: Array<String>) {
-    val inputView: InputView = ConsoleInputView()
-
-    inputView.inputPlayer()
-
+fun main() {
+    BlackJackGame(ConsoleInputView(), ConsoleOuputView())
+        .startGame()
 }

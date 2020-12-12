@@ -1,25 +1,20 @@
 package model
 
 import constant.Constant
+import java.util.*
 
 class Deck {
 
-    private val myCards = mutableListOf<Card>()
+    private val cards: Queue<Card> = LinkedList<Card>()
 
-    fun addCards(cards: List<Card>) {
-        myCards.addAll(cards)
-    }
-
-    fun addCard(card: Card) {
-        myCards.add(card)
-    }
-
-    fun createDeck(): List<Card> {
+    fun createDeck() {
         val cards = mutableListOf<Card>()
         for (i in 0 until Constant.MAX_CARDS) {
             cards.add(Card.valueOf(i))
         }
 
-        return cards.shuffled()
+        this.cards.addAll(cards.shuffled())
     }
+
+    fun popCard(): Card = cards.poll()
 }

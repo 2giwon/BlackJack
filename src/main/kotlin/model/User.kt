@@ -1,3 +1,3 @@
 package model
 
-open class User(deck: Deck)
+abstract class User(cards: List<Card>)

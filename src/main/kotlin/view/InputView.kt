@@ -2,7 +2,7 @@ package view
 
 interface InputView {
 
-    fun inputPlayer(): String
+    fun inputPlayer(): List<String>
 
     fun inputMoreCard(player: String): String
 }

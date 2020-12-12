@@ -1,10 +1,13 @@
 package view
 
+import model.Card
+import model.Player
+
 interface OuputView {
 
-    fun outPutPlayerCardCount(count: Int, players: String)
+    fun outPutPlayerCardCount(players: String)
 
-    fun outputPlayerCards(player: String, cards: String)
+    fun outputPlayerCards(player: String, cards: List<Card>)
 
-    fun resultGame(player: Map<String, Int>, cards: String)
+    fun resultGame(player: Player, total: Int)
 }
