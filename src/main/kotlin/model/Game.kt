@@ -9,6 +9,6 @@ class Game(val players: List<Player>, private val deck: Deck) {
     }
 
     fun checkMoreCard(index: Int): Boolean {
-        return players[index].getCardRankSum(players[index].getCards()) <= Constant.WINNER_VALUE
+        return players[index].getCardRankSum(players[index].getCards()) < Constant.WINNER_VALUE
     }
 }
