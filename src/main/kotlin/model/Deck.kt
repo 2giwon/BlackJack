@@ -5,7 +5,8 @@ import java.util.*
 
 class Deck {
 
-    private val cards: Queue<Card> = LinkedList<Card>()
+    private val _cards: Queue<Card> = LinkedList<Card>()
+    val cards: List<Card> get() = _cards.toList()
 
     fun createDeck() {
         val cards = mutableListOf<Card>()
@@ -13,8 +14,8 @@ class Deck {
             cards.add(Card.valueOf(i))
         }
 
-        this.cards.addAll(cards.shuffled())
+        this._cards.addAll(cards.shuffled())
     }
 
-    fun popCard(): Card = cards.poll()
+    fun popCard(): Card = _cards.poll()
 }
