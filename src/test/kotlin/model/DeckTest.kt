@@ -18,10 +18,9 @@ class DeckTest {
     fun `덱 카드 52장을 랜덤하게 생성한다`() {
         val deckSize = deck.cards.size
         deck.createDeck()
-        val totalCardCount = Constant.MAX_CARDS
 
         assertThat(deckSize).isNotEqualTo(deck.cards.size)
-        assertThat(deck.cards.size).isEqualTo(totalCardCount)
+        assertThat(deck.cards.size).isEqualTo(Constant.MAX_CARDS)
     }
 
     @Test

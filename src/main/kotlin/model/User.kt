@@ -1,3 +1,8 @@
 package model
 
-abstract class User(cards: List<Card>)
+abstract class User {
+
+    protected abstract val cards: MutableList<Card>
+
+    abstract fun makeUser(cards: List<Card>)
+}

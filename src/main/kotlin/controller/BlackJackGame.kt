@@ -20,9 +20,9 @@ class BlackJackGame(private val inputView: InputView, private val outputView: Ou
 
         game.players.forEachIndexed { index, _ -> giveCard(index, game) }
 
-        game.players.forEach {
-            outputView.resultGame(it, it.getCardRankSum(it.getCards()))
-        }
+//        game.players.forEach {
+//            outputView.resultGame(it, it.getCardRankSum(it.getCards()))
+//        }
     }
 
     fun makePlayers(playerNames: List<String>, deck: Deck): List<Player> {
@@ -35,10 +35,11 @@ class BlackJackGame(private val inputView: InputView, private val outputView: Ou
 
     private fun giveCard(playerIndex: Int, game: Game) {
         while (game.checkMoreCard(playerIndex)) {
-            if (inputView.inputMoreCard(game.players[playerIndex].name) == "n") break
+            val player = game.players[playerIndex]
+            if (inputView.inputMoreCard(player.name) == "n") break
 
-            game.addPlayerCard(playerIndex)
-            outputView.outputPlayerCards(game.players[playerIndex].name, game.players[playerIndex].getCards())
+            player.addCard(game.deck.popCard())
+            outputView.outputPlayerCards(player.name, player.getCards())
         }
     }
 }
