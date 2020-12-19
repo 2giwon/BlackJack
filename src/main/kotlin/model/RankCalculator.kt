@@ -4,14 +4,15 @@ import constant.Constant
 
 object RankCalculator {
 
-    fun getPlayerTotalCardPoints(player: Player): Int {
-        return player.playerCards
-            .asSequence()
-            .map { Card.getRankValue(it.rank) }
-            .sortedDescending()
-            .reduce { acc, value: Int ->
-                acc + if (value == Constant.ACE_VALUE) getAceCardValue(value) else value
-            }
+    fun getPlayerTotalCardPoints(user: User): Int {
+        var sum = 0
+        val groupCards = user.playerCards.groupBy { Card.isAce(it.rank) }
+
+        groupCards[false]?.forEach {
+            sum += Card.getRankValue(it.rank)
+        }
+        groupCards[true]?.forEach { _ -> sum += getAceCardValue(sum) }
+        return sum
     }
 
     private fun getAceCardValue(sum: Int): Int {
