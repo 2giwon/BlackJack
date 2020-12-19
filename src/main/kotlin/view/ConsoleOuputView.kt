@@ -14,7 +14,7 @@ class ConsoleOuputView : OuputView {
     }
 
     override fun resultGame(player: Player, total: Int) {
-        println("${player.name}카드 : ${printCards(player.getCards())} - 결과: $total")
+        println("${player.name}카드 : ${printCards(player.playerCards)} - 결과: $total")
     }
 
     private fun printCards(cards: List<Card>): String {

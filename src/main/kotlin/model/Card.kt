@@ -7,7 +7,6 @@ data class Card(
     val rank: Rank
 ) {
     companion object {
-        fun isAce(rank: Rank): Boolean = Rank.ACE == rank
 
         fun getRankValue(rank: Rank): Int {
             return when (rank) {

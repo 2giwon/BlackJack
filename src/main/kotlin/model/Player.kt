@@ -1,17 +1,11 @@
 package model
 
-class Player : User() {
+class Player(val name: String) : User() {
 
     override val cards: MutableList<Card> = mutableListOf()
-
-    override fun makeUser(cards: List<Card>) {
-
-    }
+    val playerCards: List<Card> get() = cards
 
     fun addCard(card: Card) {
-
+        cards.add(card)
     }
-
-
-
 }

@@ -1,15 +1,17 @@
 package model
 
-import org.junit.jupiter.api.BeforeEach
+import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Test
+
 
 class PlayerTest {
 
-    private lateinit var cards: List<Card>
-    private lateinit var player: Player
+    @Test
+    fun `플레이어 카드를 한장 추가한다`() {
+        val player = Player("a")
+        val playerCardCount = player.playerCards.size
+        player.addCard(Card.valueOf(3))
 
-    @BeforeEach
-    fun setup() {
-        cards = listOf(Card.valueOf(1), Card.valueOf(3))
-        player = Player(cards, "a")
+        assertThat(player.playerCards.size).isNotEqualTo(playerCardCount)
     }
 }
